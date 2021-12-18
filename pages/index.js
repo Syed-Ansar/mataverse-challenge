@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Login from '../components/Login';
 import { useMoralis } from 'react-moralis';
+import Chat from '../components/Chat';
 
 export default function Home() {
   const { isAuthenticated, logout } = useMoralis();
@@ -8,19 +9,14 @@ export default function Home() {
   if (!isAuthenticated) return <Login />;
 
   return (
-    <div className='h-screen'>
+    <div className='h-screen  overflow-y-scroll overflow-hidden'>
       <Head>
         <title>Metaverse Challenge</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='cursor-pointer flex flex-col justify-center items-center h-screen bg-blue-900 text-white font-bold space-y-5 text-xl'>
-        <h1>Metaverse Challenge #papaFam</h1>
-        <div
-          onClick={logout}
-          className='bg-blue-500 w-fit px-4 py-2 rounded-xl '
-        >
-          Logout
-        </div>
+
+      <div className='max-w-screen-2xl mx-auto'>
+        <Chat logout={logout} />
       </div>
     </div>
   );
