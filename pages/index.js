@@ -9,13 +9,13 @@ export default function Home() {
   if (!isAuthenticated) return <Login />;
 
   return (
-    <div className='h-screen  overflow-y-scroll overflow-hidden'>
+    <div className='h-screen overflow-hidden'>
       <Head>
         <title>Metaverse Challenge</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='max-w-screen-2xl mx-auto'>
+      <div className=''>
         <Chat logout={logout} />
       </div>
     </div>

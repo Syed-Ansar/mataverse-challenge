@@ -55,7 +55,9 @@ function Login() {
             height={200}
             width={200}
           />
-
+          <div className='px-5 py-2 rounded-xl font-bold flex flex-row-reverse z-50 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-50'>
+            Welcome To Metaverse!!
+          </div>
           {/* Login button */}
           <button
             onClick={authenticate}

@@ -25,30 +25,34 @@ function Chatbox() {
   const endOfMessages = useRef(null);
 
   return (
-    <div className=' bg-blue-900 text-white mt-2 w-[80%] flex flex-col bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-50 rounded-md mx-auto h-[425px] sm:h-[500px] '>
-      <div className='pb-56'>
-        <div className='my-5'>
-          <ByMoralis
-            variant='dark'
-            style={{
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          />
+    <div>
+      <div className=' scrollbar-hide bg-blue-900 text-white mt-2 w-[95%] sm:w-[80%] flex flex-col bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-50 rounded-md mx-auto h-[425px] sm:h-[500px] overflow-y-scroll overflow-hidden '>
+        <div className='pb-[125px]'>
+          <div className='my-5'>
+            <ByMoralis
+              width={'180px'}
+              variant='dark'
+              style={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+            <div className='space-y-10 p-3'>
+              {data.map((message) => (
+                <Message key={message.id} message={message} />
+              ))}
+            </div>
+          </div>
+          <div
+            ref={endOfMessages}
+            className='text-center text-[15px] md:text-md'
+          >
+            <p>You're up-to-date {user.getUsername()}! </p>
+          </div>
         </div>
-
-        <div className='space-y-10 p-3'>
-          {data.map((message) => (
-            <Message key={message.id} message={message} />
-          ))}
-        </div>
-
-        <div className='flex justify-center'>
-          <SendMessage endOfMessages={endOfMessages} />
-        </div>
-        <div ref={endOfMessages} className='text-center mt-5'>
-          <p>You're up-to-date {user.getUsername()}! </p>
-        </div>
+      </div>
+      <div className='flex justify-center'>
+        <SendMessage endOfMessages={endOfMessages} />
       </div>
     </div>
   );

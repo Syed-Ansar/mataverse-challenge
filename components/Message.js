@@ -17,10 +17,8 @@ function Message({ message }) {
       </div>
 
       <div
-        className={`flex space-x-1 p-2 rounded-md ${
-          isUserMessage
-            ? 'rounded-br-none bg-pink-400'
-            : 'rounded-bl-none bg-blue-500'
+        className={`flex space-x-1 px-2 py-1 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-50 rounded-lg text-[10px] md:text-sm lg:text-md ${
+          isUserMessage ? 'rounded-br-none ' : 'rounded-bl-none'
         }`}
       >
         <p>{message.get('message')}</p>
@@ -28,15 +26,15 @@ function Message({ message }) {
         {/* Timestamp */}
       </div>
       <TimeAgo
-        className={`text-[10px] italic text-gray-50 ${
+        className={`hidden sm:inline-block  sm:text-[10px] italic text-gray-50 ${
           isUserMessage && 'order-first pr-0.5'
         }`}
         datetime={message.createdAt}
       />
 
       <p
-        className={`absolute -bottom-5 text-xs ${
-          isUserMessage ? 'text-pink-400 right-2' : 'text-pink-500'
+        className={`absolute -bottom-5 text-[10px] ${
+          isUserMessage ? 'text-gray-200  right-2' : 'text-gray-500 left-2'
         }`}
       >
         {message.get('username')}
