@@ -33,8 +33,8 @@ function Message({ message }) {
       />
 
       <p
-        className={`absolute -bottom-5 text-[10px] ${
-          isUserMessage ? 'text-gray-200  right-2' : ' left-2'
+        className={`absolute -bottom-5 text-[10px] text-gray-200  ${
+          isUserMessage ? ' right-2' : ' left-2'
         }`}
       >
         {message.get('username')}
